@@ -1,0 +1,40 @@
+### Find All Content
+GET http://localhost:8080/content-calendar-api/content
+
+### Get Content by Id
+GET http://localhost:8080/content-calendar-api/content/1
+
+### Create New Content
+POST http://localhost:8080/content-calendar-api/content/new
+Content-Type: application/json
+
+{
+  "id": 6,
+  "title": "My Blog",
+  "desc": "My Blog",
+  "status": "IDEA",
+  "contentType": "ARTICLE",
+  "dateCreated": "2024-07-19T15:00:00",
+  "dateUpdated": "",
+  "url": "https://www.google.com/my-first-blog"
+}
+
+### Update Existing Content Id = 1
+PUT http://localhost:8080/content-calendar-api/content/edit/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "My Blog Updated",
+  "desc": "My Blog Updated",
+  "status": "IDEA",
+  "contentType": "ARTICLE",
+  "dateCreated": "2024-07-19T15:00:00",
+  "dateUpdated": "2024-07-19T17:00:00",
+  "url": "https://www.google.com/my-first-blog-updated"
+}
+
+
+### Delete Content by Id
+DELETE http://localhost:8080/content-calendar-api/content/delete/2
+Content-Type: application/json
