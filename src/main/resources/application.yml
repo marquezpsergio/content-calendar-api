@@ -1,18 +1,13 @@
 server:
   servlet:
     context-path: /content-calendar-api
+  port: 8080
 
 spring:
   application:
     name: content-calendar-api
-  #  # H2 Database Configuration
-  #  h2:
-  #    console:
-  #      enabled: true
-  #  datasource:
-  #    generate-unique-name: false
-  #    name: content
-  # PostgreSQL Database Configuration
+  profiles:
+    active: dev
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
@@ -26,6 +21,40 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
-logging:
-  level:
-    root: warn
+info:
+  app:
+    name: Content Calendar API
+    description: API para gestionar un calendario de contenidos digitales
+    version: 1.0.0
+  build:
+    artifact: content-calendar-api
+    name: Content Calendar API
+    time: ${timestamp}
+    version: 1.0.0
+
+cc:
+  home:
+    welcome-msg: "Hola! Bienvenido a la API del Calendario de Contenidos."
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  # Determina si Spring Boot debe ejecutar scripts SQL de inicializacion al iniciar la aplicacion
+  # En este caso, inicializa el schema.sql de 'resources'
+  sql:
+    init:
+      mode: always
+cc:
+  home:
+    welcome-msg: "Hola! Bienvenido a la API del Calendario de Contenidos. [Entorno de Desarrollo]"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

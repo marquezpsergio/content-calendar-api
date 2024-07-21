@@ -1,4 +1,6 @@
-CREATE TABLE IF NOT EXISTS public.Content
+DROP TABLE IF EXISTS Content;
+
+CREATE TABLE IF NOT EXISTS Content
 (
     id           SERIAL PRIMARY KEY,
     title        VARCHAR(255) NOT NULL,
@@ -10,7 +12,7 @@ CREATE TABLE IF NOT EXISTS public.Content
     url          VARCHAR(255)
 );
 
-INSERT INTO public.Content (title, description, status, content_type, date_created, date_updated, url)
+INSERT INTO Content (title, description, status, content_type, date_created, date_updated, url)
 VALUES ('Exploring AI Trends', 'An in-depth look into the latest trends in artificial intelligence.', 'IDEA', 'ARTICLE',
         '2024-01-15 09:00:00', NULL, 'https://www.techinsights.com/exploring-ai-trends'),
        ('Understanding Quantum Computing', 'A beginner’s guide to quantum computing concepts and applications.',
