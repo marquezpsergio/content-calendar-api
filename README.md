@@ -1,6 +1,6 @@
 ﻿# Content Calendar API
 
-## Descripción
+## Descripcion
 
 La API de Content Calendar es una solución backend diseñada para gestionar un calendario de contenidos digitales.
 Permite a los usuarios crear, actualizar, eliminar y consultar contenidos, los cuales pueden ser artículos, videos,
